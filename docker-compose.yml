@@ -1,0 +1,16 @@
+x-build: &build
+  context: .
+  dockerfile: Dockerfile
+
+services:
+  nginx:
+    build:
+      <<: *build
+      target: nginx
+    ports: 
+      - "8080:80"
+  
+  php:
+    build:
+      <<: *build
+      target: php
